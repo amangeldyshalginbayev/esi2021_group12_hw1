@@ -1,0 +1,5 @@
+services:
+  rest_todo_task_service:
+    build: . # uses Dockerfile in root dir to build the image
+    ports:
+      - 8080:8080
