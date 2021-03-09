@@ -5,9 +5,9 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"os"
 	"io/ioutil"
 	"net/http"
+	"os"
 )
 
 func listTodos() {
@@ -111,13 +111,13 @@ func deleteTodo() error {
 		jsonValue, _ := json.Marshal(jsonData)
 		var request, err = http.NewRequest(http.MethodDelete, "http://localhost:8080/api/todos/"+id, bytes.NewBuffer(jsonValue))
 		client := &http.Client{}
-		
+
 		response, err := client.Do(request)
 		if err != nil {
 			fmt.Printf("The HTTP error %s\n", err)
 		} else {
 			data, _ := ioutil.ReadAll(response.Body)
-			fmt.Println("Deleted Item Id is "+ id+ ". Remaining todo items are : ")
+			fmt.Println("Deleted Item Id is " + id + ". Remaining todo items are : ")
 			fmt.Println(string(data))
 		}
 	}
@@ -141,7 +141,7 @@ func main() {
 		if i == 1 {
 			createTodo()
 		} else if i == 2 {
-			
+
 			listTodos()
 		} else if i == 3 {
 			getTodo()
@@ -151,7 +151,6 @@ func main() {
 			deleteTodo()
 		}
 
-		
-
 	}
+
 }
