@@ -1,0 +1,36 @@
+version: "3.3"
+
+services:
+
+  traefik:
+    image: "traefik:v2.4"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  my_rest_api:
+    image: "amangeldyshalginbayev/dockerhub:task5-rest-api"
+    container_name: "simple-backend-service"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.my_rest_api.rule=Host(`api.localhost`)"
+      - "traefik.http.routers.my_rest_api.entrypoints=web"
+
+  sample_todo_app:
+    image: prologic/todo
+    container_name: sample_todo_app_container
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sample_todo_app.rule=Host(`mystery.localhost`)"
+      - "traefik.http.routers.sample_todo_app.entrypoints=web"
+    environment:
+      THEME: ayu
