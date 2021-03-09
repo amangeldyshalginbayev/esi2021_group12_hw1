@@ -1,0 +1,51 @@
+Task 2:
+● Name(s) of person(s) who implemented the solution for the task : Shimul Dey
+● Name of reviewer : Rabindra Dahal
+● Was the stated problem/task solved in an acceptable manner? (Would this count as a
+delivery for a potential client?) - if this is a no, the task is rejected and can be redone
+(this option can be taken four times in total - has to be discussed with instructors). : Partially yes, using infinite for loop 
+is a bad idea, but atleast it solves the problem.
+● What has been done well and why? : The rest api exposed is being consumed well by taking into consideration for error values.
+● What is not well implemented and why? : I think the implementation is satisfactory.
+● How easy is it to understand (what is easy to understand/well documented - what is hard
+to understand/lacks documentation)? : If there is short description of the function then it would be better, but name is also self explanatory.
+● Are there any recommendations to simplify some of this task that the reviewer would like
+to share? : There is no such recommendations but
+● Did the implementers use anything special that was notable for the reviewer and should
+eventually be shared with a bigger audience? Note these specialties down with a
+positive remark to encourage sharing. : I donot find anything notable.
+● Anything else notable, encouraging, or funny? Nothing 
+
+Task 3:
+● Name(s) of person(s) who implemented the solution for the task : Amangeldy Shalginbayev
+● Name of reviewer : Rabindra Dahal
+● Was the stated problem/task solved in an acceptable manner? (Would this count as a
+delivery for a potential client?) - if this is a no, the task is rejected and can be redone
+(this option can be taken four times in total - has to be discussed with instructors). : The task is not done yet.
+● What has been done well and why? : No comment.
+● What is not well implemented and why? : No comment.
+● How easy is it to understand (what is easy to understand/well documented - what is hard
+to understand/lacks documentation)? : No comment.
+● Are there any recommendations to simplify some of this task that the reviewer would like
+to share? : No comment.
+● Did the implementers use anything special that was notable for the reviewer and should
+eventually be shared with a bigger audience? Note these specialties down with a
+positive remark to encourage sharing. : No comment.
+● Anything else notable, encouraging, or funny? No comment.
+
+Task 5:
+● Name(s) of person(s) who implemented the solution for the task : Amangeldy Shalginbayev
+● Name of reviewer : Rabindra Dahal
+● Was the stated problem/task solved in an acceptable manner? (Would this count as a
+delivery for a potential client?) - if this is a no, the task is rejected and can be redone
+(this option can be taken four times in total - has to be discussed with instructors). : The task is done as per the recommendation from task 5 description.
+● What has been done well and why? : Docker compose is well written using image from dockerhub.
+● What is not well implemented and why? : I donot find anything like that.
+● How easy is it to understand (what is easy to understand/well documented - what is hard
+to understand/lacks documentation)? : I could not understand all the code because of lack of documentation.
+● Are there any recommendations to simplify some of this task that the reviewer would like
+to share? : I would recommend Documentation 
+● Did the implementers use anything special that was notable for the reviewer and should
+eventually be shared with a bigger audience? Note these specialties down with a
+positive remark to encourage sharing. : I donot find anything like that.
+● Anything else notable, encouraging, or funny? Nothing so far.

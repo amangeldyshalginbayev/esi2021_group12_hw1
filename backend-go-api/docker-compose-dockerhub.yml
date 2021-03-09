@@ -1,0 +1,11 @@
+version: '3'
+services:
+  rest_optimized:
+    image: "rabindradahal/gorestv1.0"
+    ports:
+      - target: 8080
+        published: 8080
+networks: 
+  default: 
+    external: 
+      name: external-example

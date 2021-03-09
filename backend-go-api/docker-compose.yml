@@ -1,5 +1,20 @@
+version: '3'
 services:
-  rest_todo_task_service:
-    build: . # uses Dockerfile in root dir to build the image
+  rest_normal:
+    build: 
+          context: .
+          dockerfile: Dockerfile # uses Dockerfile in root dir to build the image
+
     ports:
-      - 8080:8080
+      - target: 8080
+        published: 8080
+networks: 
+  default: 
+    external: 
+      name: external-example
+
+
+
+# docker-compose -f docker-compose.yml up
+
+# frontend_default

@@ -8,3 +8,4 @@ RUN go build -o rest_todo_task_service
 EXPOSE 8080
 
 ENTRYPOINT ["/app/rest_todo_task_service"]
+ 
