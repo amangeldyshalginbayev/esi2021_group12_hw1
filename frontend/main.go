@@ -5,14 +5,19 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"os"
 	"io/ioutil"
 	"net/http"
+	"os"
 )
+
+var API_URL = "http://172.25.0.2:8080/api/todos"
+
+// var API_URL := "http://localhost:8080/api/todos"
 
 func listTodos() {
 	fmt.Println("Listing Todos")
-	response, err := http.Get("http://localhost:8080/api/todos")
+	// response, err := http.Get("http://localhost:8080/api/todos")
+	response, err := http.Get(API_URL)
 	if err != nil {
 		fmt.Printf("The HTTP error %s\n", err)
 	} else {
@@ -35,7 +40,8 @@ func createTodo() error {
 		fmt.Println("Creating todo Item ", text)
 		jsonData := map[string]string{"Text": text}
 		jsonValue, _ := json.Marshal(jsonData)
-		var response, err = http.Post("http://localhost:8080/api/todos", "application/json", bytes.NewBuffer(jsonValue))
+		// var response, err = http.Post("http://localhost:8080/api/todos", "application/json", bytes.NewBuffer(jsonValue))
+		var response, err = http.Post(API_URL, "application/json", bytes.NewBuffer(jsonValue))
 		if err != nil {
 			fmt.Printf("The HTTP error %s\n", err)
 		} else {
@@ -58,7 +64,8 @@ func getTodo() error {
 	if err := scanner.Err(); err != nil {
 		return err
 	} else {
-		response, err := http.Get("http://localhost:8080/api/todos/" + id)
+		// response, err := http.Get("http://localhost:8080/api/todos/" + id)
+		response, err := http.Get(API_URL + "/" + id)
 		if err != nil {
 			fmt.Printf("The HTTP error %s\n", err)
 		} else {
@@ -83,7 +90,8 @@ func completeTodo() error {
 	} else {
 		jsonData := map[string]string{"ID": id}
 		jsonValue, _ := json.Marshal(jsonData)
-		var response, err = http.Post("http://localhost:8080/api/todos/complete/"+id, "application/json", bytes.NewBuffer(jsonValue))
+		// var response, err = http.Post("http://localhost:8080/api/todos/complete/"+id, "application/json", bytes.NewBuffer(jsonValue))
+		var response, err = http.Post(API_URL+"/complete/"+id, "application/json", bytes.NewBuffer(jsonValue))
 		if err != nil {
 			fmt.Printf("The HTTP error %s\n", err)
 		} else {
@@ -109,15 +117,16 @@ func deleteTodo() error {
 	} else {
 		jsonData := map[string]string{"ID": id}
 		jsonValue, _ := json.Marshal(jsonData)
-		var request, err = http.NewRequest(http.MethodDelete, "http://localhost:8080/api/todos/"+id, bytes.NewBuffer(jsonValue))
+		// var request, err = http.NewRequest(http.MethodDelete, "http://localhost:8080/api/todos/"+id, bytes.NewBuffer(jsonValue))
+		var request, err = http.NewRequest(http.MethodDelete, API_URL+"/"+id, bytes.NewBuffer(jsonValue))
 		client := &http.Client{}
-		
+
 		response, err := client.Do(request)
 		if err != nil {
 			fmt.Printf("The HTTP error %s\n", err)
 		} else {
 			data, _ := ioutil.ReadAll(response.Body)
-			fmt.Println("Deleted Item Id is "+ id+ ". Remaining todo items are : ")
+			fmt.Println("Deleted Item Id is " + id + ". Remaining todo items are : ")
 			fmt.Println(string(data))
 		}
 	}
@@ -141,7 +150,7 @@ func main() {
 		if i == 1 {
 			createTodo()
 		} else if i == 2 {
-			
+
 			listTodos()
 		} else if i == 3 {
 			getTodo()
@@ -151,7 +160,6 @@ func main() {
 			deleteTodo()
 		}
 
-		
-
 	}
+
 }

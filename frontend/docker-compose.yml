@@ -1,0 +1,25 @@
+version: '3'
+services:
+    frontend:
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        # networks:
+        #   - external-example
+        stdin_open: true
+        tty: true
+networks: 
+  default: 
+    external: 
+      name: external-example
+
+        
+            
+        
+# docker network inspect foodtrucks_default
+#  docker compose up --remove-orphans
+# docker container run --rm --name hello -it hello
+# https://stackoverflow.com/questions/66544508/golang-infinite-for-loop-problem-with-docker-run
+# docker-compose up --build -d --remove-orphans
+# docker-compose run frontend_normal
+# docker-compose run frontend_optimized
