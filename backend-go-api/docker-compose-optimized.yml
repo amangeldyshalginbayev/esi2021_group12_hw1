@@ -1,0 +1,17 @@
+version: '3'
+services:
+  rest_optimized:
+    build: 
+          context: .
+          dockerfile: Dockerfile.optimized # uses Dockerfile in root dir to build the image
+    ports:
+      - target: 8080
+        published: 8080
+networks: 
+  default: 
+    external: 
+      name: external-example
+      
+
+# docker-compose -f docker-compose-optimized.yml up --build -d --remove-orphans
+# docker-compose -f docker-compose-optimized.yml up
