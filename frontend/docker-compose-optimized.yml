@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3'
 services:
     ofrontend:
         build: 
@@ -6,6 +6,10 @@ services:
             dockerfile: Dockerfile.optimized
         stdin_open: true  #using for using command line
         tty: true
+networks: 
+  default: 
+    external: 
+      name: external-example
         
             
         

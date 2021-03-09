@@ -1,0 +1,10 @@
+version: '3'
+services:
+  rest_optimized:
+    image: "rabindradahal/frontendv1.0"
+    stdin_open: true  #using for using command line
+    tty: true
+networks: 
+  default: 
+    external: 
+      name: external-example
