@@ -12,7 +12,7 @@ import (
 
 var API_URL = "http://172.25.0.2:8080/api/todos"
 
-// var API_URL := "http://localhost:8080/api/todos"
+//var API_URL = "http://localhost:8080/api/todos"
 
 func listTodos() {
 	fmt.Println("Listing Todos")
